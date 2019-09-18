@@ -7,9 +7,23 @@
 //
 
 #include <iostream>
+using namespace std;
+
+// add all even values of fibonacci up to 4 million
+
+int fibonacci(long n) {
+    if (n == 1 or n == 0) {
+        return 1;
+    }
+    else {
+        return fibonacci(n-1) + fibonacci(n-2);
+    }
+}
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    long initial = 4000000000;
+    
+    cout << fibonacci(1000);
+    
     return 0;
 }
