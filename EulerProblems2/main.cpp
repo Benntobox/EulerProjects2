@@ -24,30 +24,26 @@ using namespace std;
 
  */
 
-vector<long> fibonacciBuilder(int n) {
-    vector<long> results = {};
+long fibonacciBuilder(long len) {
+    int total = 0;
+    long arr[len];
     
-    for (int i = 0; i < n; i++) {
-        if (i < 2) { results.push_back(1); }
-        else { results[i] = results[i-1] + results[i-2]; }
+    for (int i = 0; i < len; i++) {
+        if (i < 2) { arr[i] = 1; }
+        else { arr[i] = arr[i-1] + arr[i-2]; }
     }
     
-    return results;
+    for (int i = 0; i < len; i++) {
+        long val = arr[i];
+        cout << val << endl;
+        if (val%2 == 0) { total += val; }
+    }
+    
+    return total;
 }
 
 int main(int argc, const char * argv[]) {
-    int n = 50;
-    int total = 0;
-
-    vector<long> result = fibonacciBuilder(n);
-    
-    for (int i = 0; i < n; i++) {
-        long val = result[i];
-        cout << val << endl;
-        if (val%2 == 0) { total += result[i]; }
-    }
-    
-    cout << "Total is: " << total << endl;
-    
+    long result = fibonacciBuilder(47);
+    cout << "The result is: " << result << endl;
     return 0;
 }
