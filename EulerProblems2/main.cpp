@@ -9,7 +9,19 @@
 #include <iostream>
 using namespace std;
 
-// add all even values of fibonacci up to 4 million
+// add all even values of fibonacci for values up to 4 million
+
+int fibonacciBuilder(int n) {
+    int fibVals[n];
+    for (int i = 0; i < n; i++) {
+        if (i < 2) {
+            fibVals[i] = 1;
+        }
+        else {
+            fibVals[i] = fibVals[i-1] + fibVals[i-2];
+        }
+    }
+}
 
 int fibonacci(long n) {
     if (n == 1 or n == 0) {
@@ -23,7 +35,7 @@ int fibonacci(long n) {
 int main(int argc, const char * argv[]) {
     long initial = 4000000000;
     
-    cout << fibonacci(1000);
+    cout << fibonacci(46);
     
     return 0;
 }
