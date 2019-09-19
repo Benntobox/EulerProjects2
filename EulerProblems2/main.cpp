@@ -8,34 +8,46 @@
 
 #include <iostream>
 using namespace std;
+#include <vector>
 
 // add all even values of fibonacci for values up to 4 million
+/*
+ 
+ int fibonacci(long n) {
+ if (n == 1 or n == 0) {
+ return 1;
+ }
+ else {
+ return fibonacci(n-1) + fibonacci(n-2);
+ }
+ }
 
-int fibonacciBuilder(int n) {
-    int fibVals[n];
+ */
+
+vector<long> fibonacciBuilder(int n) {
+    vector<long> results = {};
+    
     for (int i = 0; i < n; i++) {
-        if (i < 2) {
-            fibVals[i] = 1;
-        }
-        else {
-            fibVals[i] = fibVals[i-1] + fibVals[i-2];
-        }
+        if (i < 2) { results.push_back(1); }
+        else { results[i] = results[i-1] + results[i-2]; }
     }
-}
-
-int fibonacci(long n) {
-    if (n == 1 or n == 0) {
-        return 1;
-    }
-    else {
-        return fibonacci(n-1) + fibonacci(n-2);
-    }
+    
+    return results;
 }
 
 int main(int argc, const char * argv[]) {
-    long initial = 4000000000;
+    int n = 50;
+    int total = 0;
+
+    vector<long> result = fibonacciBuilder(n);
     
-    cout << fibonacci(46);
+    for (int i = 0; i < n; i++) {
+        long val = result[i];
+        cout << val << endl;
+        if (val%2 == 0) { total += result[i]; }
+    }
+    
+    cout << "Total is: " << total << endl;
     
     return 0;
 }
